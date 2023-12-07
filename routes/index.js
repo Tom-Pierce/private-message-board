@@ -18,4 +18,8 @@ router.get("/logout", indexController.log_out_get);
 
 router.post("/logout", indexController.log_out_post);
 
+router.get("/new-message", indexController.new_message_get);
+
+router.post("/new-message", indexController.new_message_post);
+
 module.exports = router;

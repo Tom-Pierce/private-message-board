@@ -10,7 +10,7 @@ exports.index = async (req, res, next) => {
   try {
     const messages = await Message.find()
       .sort({ date: -1 })
-      .populate("author")
+      .populate("user")
       .exec();
     res.render("messages", {
       messages: messages,
@@ -122,3 +122,24 @@ exports.log_out_post = (req, res, next) => {
     res.redirect("/");
   });
 };
+
+exports.new_message_get = (req, res, next) => {
+  res.render("new-message");
+};
+
+exports.new_message_post = [
+  body("message").trim().escape(),
+  async (req, res, next) => {
+    try {
+      console.log(req.user);
+      const message = new Message({
+        text: req.body.message,
+        user: req.user.id,
+      });
+      await message.save();
+      res.redirect("/");
+    } catch (error) {
+      return next(error);
+    }
+  },
+];
