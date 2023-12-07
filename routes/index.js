@@ -10,4 +10,8 @@ router.get("/sign-up", indexController.sign_up_get);
 
 router.post("/sign-up", indexController.sign_up_post);
 
+router.get("/log-in", indexController.log_in_get);
+
+router.post("/log-in", indexController.log_in_post);
+
 module.exports = router;

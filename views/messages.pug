@@ -4,9 +4,14 @@ block content
 
     h1 Message Board
 
-    ul.messages
-        each message in messages
-            li.message
-                p.username #{message.author.username}
-                p.message-text #{message.text}
-                
+        ul.messages
+            each message in messages
+                li.message
+                    p.username #{message.author.username}
+                    p.message-text #{message.text}
+    
+    unless messages.length
+        p No messages have been sent, be the first!
+
+    p
+        #{currentUser}

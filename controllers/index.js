@@ -12,16 +12,9 @@ exports.index = async (req, res, next) => {
       .sort({ date: -1 })
       .populate("author")
       .exec();
-
-    if (messages.length === 0) {
-      const error = new Error("No messages found");
-      error.status = 404;
-      return next(error);
-    } else {
-      res.render("messages", {
-        messages: messages,
-      });
-    }
+    res.render("messages", {
+      messages: messages,
+    });
   } catch (error) {
     next(error);
   }
@@ -94,7 +87,12 @@ exports.sign_up_post = [
             password: hashedPassword,
           });
           const result = await user.save();
-          res.redirect("/");
+          req.login(user, function (err) {
+            if (err) {
+              return next(err);
+            }
+            return res.redirect("/");
+          });
         });
       }
     } catch (error) {
