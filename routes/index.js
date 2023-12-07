@@ -6,12 +6,16 @@ const indexController = require("../controllers/index");
 /* GET home page. */
 router.get("/", indexController.index);
 
-router.get("/sign-up", indexController.sign_up_get);
+router.get("/signup", indexController.sign_up_get);
 
-router.post("/sign-up", indexController.sign_up_post);
+router.post("/signup", indexController.sign_up_post);
 
-router.get("/log-in", indexController.log_in_get);
+router.get("/login", indexController.log_in_get);
 
-router.post("/log-in", indexController.log_in_post);
+router.post("/login", indexController.log_in_post);
+
+router.get("/logout", indexController.log_out_get);
+
+router.post("/logout", indexController.log_out_post);
 
 module.exports = router;

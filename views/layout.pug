@@ -10,9 +10,16 @@ html
       ul
         li 
           a(href="/") Home
-        li
-          a(href="/sign-up") Sign Up
-        li
-          a(href="/log-in") Log In
+        if(currentUser !== undefined)
+          li
+            a(href="/logout") Log Out        
+          li
+            a(href="/new-message") New Message
+        else
+          li
+            a(href="/login") Log In
+          li
+            a(href="/signup") Sign Up
+        
 
     block content
