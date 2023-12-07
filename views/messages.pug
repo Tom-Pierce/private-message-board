@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+    h1 Message Board
+
+    ul.messages
+        each message in messages
+            li.message
+                p.username #{message.author.username}
+                p.message-text #{message.text}
+                
