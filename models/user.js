@@ -8,4 +8,10 @@ const UserSchema = new Schema({
   dateJoined: { type: Date, required: true, default: Date.now() },
 });
 
+UserSchema.index({ username: 1 });
+
+UserSchema.virtual("url").get(function () {
+  return `/user/${this.username}`;
+});
+
 module.exports = mongoose.model("user", UserSchema);
