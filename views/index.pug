@@ -1,11 +1,12 @@
 extends layout
 
 block content
-    h1 Message Board
+    .message-board
+        h1.title Latest messages:
 
-    ul.messages
-        each message in messages
-            - const user = message.user
-            include message
-    unless messages.length
-        p No messages have been sent, be the first!
+        ul
+            each message in messages
+                - const user = message.user
+                include message
+        unless messages.length
+            p No messages have been sent, be the first!

@@ -1,14 +1,27 @@
-.nav-bar a {
-  text-decoration: none;
-  font-size: 1.5rem;
+.nav-bar {
+  padding: 1rem;
+}
+
+.nav-bar .btn a {
   font-weight: 700;
+  background-color: var(--primary);
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--secondary);
+}
+
+.nav-bar .homebtn {
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .nav-bar ul {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
 .nav-bar li {
-  padding: 1rem;
+  padding: 0.5rem;
 }

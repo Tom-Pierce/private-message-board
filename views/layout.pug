@@ -5,20 +5,22 @@ html
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/nav-bar.css')
+    link(rel='stylesheet', href='/stylesheets/message.css')
+
   body
     div.nav-bar
       ul
-        li 
-          a(href="/") Home
+        li.homebtn 
+          a(href="/") MessageBoard
         if(currentUser !== undefined)
-          li
-            a(href="/logout") Log Out        
-          li
-            a(href="/new-message") New Message
+          .btn
+            a(href="/logout") LOG OUT 
+          .btn
+            a.btn(href="/new-message") NEW MESSAGE
         else
-          li
-            a(href="/login") Log In
-          li
-            a(href="/signup") Sign Up
+          .btn
+            a.btn(href="/login") LOG IN
+          .btn
+            a.btn(href="/signup") SIGN UP
 
     block content
