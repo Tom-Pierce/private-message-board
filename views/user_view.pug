@@ -8,6 +8,4 @@ block content
 
     ul.messages
         each message in messages
-            li.message
-                a(href=user.url) #{user.username}:
-                p.message-text #{message.text}
+            include message
