@@ -13,14 +13,14 @@ html
         li.homebtn 
           a(href="/") MessageBoard
         if(currentUser !== undefined)
-          .btn
+          li.btn
             a(href="/logout") LOG OUT 
-          .btn
-            a.btn(href="/new-message") NEW MESSAGE
+          li.btn
+            a(href="/new-message") NEW MESSAGE
         else
-          .btn
-            a.btn(href="/login") LOG IN
-          .btn
-            a.btn(href="/signup") SIGN UP
+          li.btn
+            a(href="/login") LOG IN
+          li.btn
+            a(href="/signup") SIGN UP
 
     block content
