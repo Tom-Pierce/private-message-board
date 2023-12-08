@@ -1,0 +1,23 @@
+.form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  background-color: var(--primary);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group .btn {
+  background-color: var(--accent);
+  padding: 0.625rem;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  align-self: center;
+}

@@ -2,22 +2,24 @@ extends layout
 
 block content
 
-    h1 Log In
 
-    form.log-in-form(action="" method="POST")
-        div.form-group
-            label(for="username") Username:
-            input#username(type="text" name="username" placeholder="username" required=true value=(user === undefined ? "" : user.username))
-        div.form-group
-            label(for="password") Password:
-            input#password(type="password" name="password" required=true value=(user === undefined ? "" : user.password))
-        div.form-group
-            button.btn(type="submit") Log In
+    .content
+        h1 Log In
 
-        if(errors)
-            ul
-                each error in errors
-                    li #{error.msg}
+        form.form.log-in-form(action="" method="POST")
+            div.form-group
+                label(for="username") Username:
+                input#username(type="text" name="username" placeholder="username" required=true value=(user === undefined ? "" : user.username))
+            div.form-group
+                label(for="password") Password:
+                input#password(type="password" name="password" placeholder="password" required=true value=(user === undefined ? "" : user.password))
+            div.form-group
+                button.btn(type="submit") Log In
 
-        if(loginError)
-            p #{loginError[loginError.length - 1]}
+            if(errors)
+                ul
+                    each error in errors
+                        li #{error.msg}
+
+            if(loginError)
+                p #{loginError[loginError.length - 1]}

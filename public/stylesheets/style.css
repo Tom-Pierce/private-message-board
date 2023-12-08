@@ -21,7 +21,7 @@ a {
   display: inline-block;
 }
 
-.message-board {
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,4 +34,14 @@ a {
 
 svg {
   fill: currentColor;
+}
+
+.btn,
+.homebtn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover,
+.homebtn:hover {
+  transform: scale(1.05);
 }

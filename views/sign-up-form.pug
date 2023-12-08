@@ -2,22 +2,23 @@ extends layout
 
 block content
 
-    h1 Sign Up!
+    .content
+        h1 Sign Up
 
-    form.sign-up-form(action="" method="POST")
-        div.form-group
-            label(for="username") Username:
-            input#username(type="text" name="username" placeholder="username" required=true value=(user === undefined ? "" : user.username))
-        div.form-group
-            label(for="password") Password:
-            input#password(type="password" name="password" required=true value=(user === undefined ? "" : user.password))
-        div.form-group
-            label(for="password-confirmation") Confirm password:
-            input#password-confirmation(type="password" name="password_confirmation" required=true value=(user === undefined ? "" : user.password_confirmation))
-        div.form-group
-            button.btn(type="submit") Sign Up
+        form.form.sign-up-form(action="" method="POST")
+            div.form-group
+                label(for="username") Username:
+                input#username(type="text" name="username" placeholder="username" required=true value=(user === undefined ? "" : user.username))
+            div.form-group
+                label(for="password") Password:
+                input#password(type="password" name="password" placeholder="password" required=true value=(user === undefined ? "" : user.password))
+            div.form-group
+                label(for="password-confirmation") Confirm password:
+                input#password-confirmation(type="password" name="password_confirmation" placeholder="confirm password" required=true value=(user === undefined ? "" : user.password_confirmation))
+            div.form-group
+                button.btn(type="submit") Sign Up
 
-        if(errors)
-            ul
-                each error in errors
-                    li #{error.msg}
+            if(errors)
+                ul
+                    each error in errors
+                        li #{error.msg}
