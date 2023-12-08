@@ -12,7 +12,7 @@ exports.index = async (req, res, next) => {
       .sort({ date: -1 })
       .populate("user")
       .exec();
-    res.render("messages", {
+    res.render("index", {
       messages: messages,
     });
   } catch (error) {
