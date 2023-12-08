@@ -21,3 +21,10 @@
   margin-top: 0.5rem;
   align-self: center;
 }
+
+.form-group textarea {
+  background-color: var(--primary);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  height: 100px;
+}

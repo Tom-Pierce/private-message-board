@@ -9,9 +9,10 @@ const { body, validationResult } = require("express-validator");
 exports.index = async (req, res, next) => {
   try {
     const messages = await Message.find()
-      .sort({ dateSent: -1 })
       .populate("user")
+      .sort({ dateSent: -1 })
       .exec();
+    console.log(messages);
     res.render("index", {
       messages: messages,
     });

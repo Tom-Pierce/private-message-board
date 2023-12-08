@@ -1,15 +1,15 @@
 extends layout
 
 block content
+    .content
+        h1.title New Message
+        if(currentUser !== undefined)
 
-    if(currentUser !== undefined)
-        h1 New message
-
-        form.message-form(action="" method="POST")
-            div.form-group
-                label(for="message") Message:
-                textarea#message(name="message")        
-            div.form-group
-                button.btn(type="submit") Send message
-    else
-        p Please login before trying to send a message, if you are currently logged in please refresh.
+            form.message-form(action="" method="POST")
+                div.form-group
+                    label(for="message") Message:
+                    textarea#message(name="message" placeholder="what's on your mind?")
+                div.form-group
+                    button.btn(type="submit") Send message
+        else
+            p Please login before trying to send a message, if you are currently logged in please refresh.
