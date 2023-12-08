@@ -102,12 +102,15 @@ exports.sign_up_post = [
 ];
 
 exports.log_in_get = (req, res, next) => {
-  res.render("log-in-form");
+  res.render("log-in-form", {
+    loginError: req.session.messages,
+  });
 };
 
 exports.log_in_post = passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/",
+  failureRedirect: "/login",
+  failureMessage: true,
 });
 
 exports.log_out_get = (req, res, next) => {
@@ -127,7 +130,6 @@ exports.new_message_post = [
   body("message").trim().escape(),
   async (req, res, next) => {
     try {
-      console.log(req.user);
       const message = new Message({
         text: req.body.message,
         user: req.user.id,

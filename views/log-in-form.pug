@@ -18,3 +18,6 @@ block content
             ul
                 each error in errors
                     li #{error.msg}
+
+        if(loginError)
+            p #{loginError[loginError.length - 1]}
