@@ -12,5 +12,3 @@ link(rel='stylesheet', href='/stylesheets/message.css')
                                 li(style=(index === message.replies.length - 1 ? "border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem;":  "" )).reply
                                         a.username(href=reply.user.url) #{reply.user.username}:
                                         span.message-text  #{reply.text}
-                                
-// TODO ADD REPLIES, BUTTON IS THERE JUST THE SAME NEW MESSAGE FIELD AND THEN A DROPDOWN TO SEE THEM?

@@ -1,11 +1,11 @@
 extends layout
 
 block content
+    .content
+        h1 #{user.username}' messages
 
-    h1 #{user.username}'s profile
-
-    h2 Messages
-
-    ul.messages
-        each message in messages
-            include message
+        ul.messages
+            each message in messages
+                if(message.isReply)
+                    p #{message}
+                include message
