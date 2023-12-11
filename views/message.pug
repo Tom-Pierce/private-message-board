@@ -3,3 +3,14 @@ link(rel='stylesheet', href='/stylesheets/message.css')
 li.message-card
         a.username(href=user.url) #{user.username}:
         p.message-text #{message.text}
+        .reply
+                a.btn(href=`${message._id}/reply`) Reply
+
+if(message.replies)
+        ul.replies
+                each reply in message.replies
+                        li.reply
+                                a.username(href=reply.user.url) #{reply.user.username}:
+                                p.message-text #{reply.text}
+                        
+// TODO ADD REPLIES, BUTTON IS THERE JUST THE SAME NEW MESSAGE FIELD AND THEN A DROPDOWN TO SEE THEM?

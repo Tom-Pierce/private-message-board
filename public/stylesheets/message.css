@@ -10,3 +10,11 @@
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+.message-card .reply {
+  display: flex;
+}
+
+.message-card .reply a {
+  margin-left: auto;
+}

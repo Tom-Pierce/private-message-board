@@ -2,7 +2,7 @@ extends layout
 
 block content
     .content
-        h1.title New Message
+        h1.title= title
         if(currentUser !== undefined)
 
             form.message-form(action="" method="POST")

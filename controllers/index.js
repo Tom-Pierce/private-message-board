@@ -8,11 +8,15 @@ const { body, validationResult } = require("express-validator");
 
 exports.index = async (req, res, next) => {
   try {
-    const messages = await Message.find()
+    const messages = await Message.find({ isReply: false })
       .populate("user")
+      .populate({
+        path: "replies",
+        populate: { path: "user" },
+      })
       .sort({ dateSent: -1 })
       .exec();
-    console.log(messages);
+
     res.render("index", {
       messages: messages,
     });
@@ -124,7 +128,7 @@ exports.log_out_get = (req, res, next) => {
 };
 
 exports.new_message_get = (req, res, next) => {
-  res.render("new-message");
+  res.render("new-message", { title: "New message" });
 };
 
 exports.new_message_post = [
@@ -136,6 +140,31 @@ exports.new_message_post = [
         user: req.user.id,
       });
       await message.save();
+      res.redirect("/");
+    } catch (error) {
+      return next(error);
+    }
+  },
+];
+
+exports.reply_get = (req, res, next) => {
+  res.render("new-message", { title: "New reply" });
+};
+
+exports.reply_post = [
+  body("message").trim().escape(),
+  async (req, res, next) => {
+    try {
+      const message = new Message({
+        text: req.body.message,
+        user: req.user.id,
+      });
+      await message.save();
+      await Message.updateOne(
+        { _id: req.params.id },
+        { $push: { replies: message } }
+      );
+
       res.redirect("/");
     } catch (error) {
       return next(error);

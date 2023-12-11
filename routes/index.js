@@ -20,4 +20,8 @@ router.get("/new-message", indexController.new_message_get);
 
 router.post("/new-message", indexController.new_message_post);
 
+router.get("/:id/reply", indexController.reply_get);
+
+router.post("/:id/reply", indexController.reply_post);
+
 module.exports = router;
