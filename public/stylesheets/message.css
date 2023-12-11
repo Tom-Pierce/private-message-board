@@ -1,5 +1,8 @@
+.message {
+  margin: 1rem;
+}
+
 .message-card {
-  margin: 0.75rem;
   padding: 1rem;
   background-color: var(--secondary);
   border-radius: 1rem;
@@ -17,4 +20,13 @@
 
 .message-card .reply a {
   margin-left: auto;
+}
+
+.replies .reply {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  background-color: var(--secondary);
+  border-radius: 0.25rem;
+  max-width: 400px;
+  margin-top: 0.25rem;
 }

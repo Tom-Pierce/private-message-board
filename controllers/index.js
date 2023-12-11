@@ -9,14 +9,14 @@ const { body, validationResult } = require("express-validator");
 exports.index = async (req, res, next) => {
   try {
     const messages = await Message.find({ isReply: false })
-      .populate("user")
+      .populate("user", "username")
       .populate({
         path: "replies",
-        populate: { path: "user" },
+        populate: { path: "user", select: "username" },
       })
       .sort({ dateSent: -1 })
       .exec();
-
+    console.log(messages[0].replies);
     res.render("index", {
       messages: messages,
     });
@@ -158,6 +158,7 @@ exports.reply_post = [
       const message = new Message({
         text: req.body.message,
         user: req.user.id,
+        isReply: true,
       });
       await message.save();
       await Message.updateOne(
